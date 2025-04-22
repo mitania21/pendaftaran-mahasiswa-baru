@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendaftaran Mahasiswa Baru</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <style>
+  body {
+	background: linear-gradient(to right, #ff9a9e, #fad0c4);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial, sans-serif;
+}
+
+
+  .card {
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    background-color: #ffffffdd;
+    backdrop-filter: blur(8px);
+    border: none;
+    padding: 2rem;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .form-control {
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #00c6ff;
+    box-shadow: 0 0 0 0.1rem rgba(0,198,255,.25);
+  }
+
+  .btn-success {
+    border-radius: 12px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+
+  .btn-success:hover {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+  }
+
+  h3 {
+    font-weight: bold;
+    color: #004d99;
+  }
+
+  a {
+    color: #004d99;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h3 class="text-center mb-4">Formulir Pendaftaran Mahasiswa Baru</h3>
+          <form onsubmit="return handleSubmit(event)">
+			  <div class="mb-3">
+			    <label for="nama" class="form-label">Nama Lengkap</label>
+			    <input type="text" class="form-control" id="nama" placeholder="Masukkan nama lengkap Anda" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="nisn" class="form-label">NISN</label>
+			    <input type="text" class="form-control" id="nisn" placeholder="Nomor Induk Siswa Nasional" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="tempat" class="form-label">Tempat Lahir</label>
+			    <input type="text" class="form-control" id="tempat" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="tanggal" class="form-label">Tanggal Lahir</label>
+			    <input type="date" class="form-control" id="tanggal" required>
+			  </div>
+			  <div class="mb-3">
+			    <label class="form-label d-block">Jenis Kelamin</label>
+			    <div class="form-check form-check-inline">
+			      <input class="form-check-input" type="radio" name="gender" id="laki" value="Laki-laki" required>
+			      <label class="form-check-label" for="laki">Laki-laki</label>
+			    </div>
+			    <div class="form-check form-check-inline">
+			      <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan" required>
+			      <label class="form-check-label" for="perempuan">Perempuan</label>
+			    </div>
+			  </div>
+			  <div class="mb-3">
+			    <label for="alamat" class="form-label">Alamat Lengkap</label>
+			    <textarea class="form-control" id="alamat" rows="2" placeholder="Tulis alamat lengkap" required></textarea>
+			  </div>
+			  <div class="mb-3">
+			    <label for="sekolah" class="form-label">Asal Sekolah</label>
+			    <input type="text" class="form-control" id="sekolah" placeholder="SMA/SMK asal" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="prodi" class="form-label">Program Studi yang Dipilih</label>
+			    <select class="form-select" id="prodi" required>
+			      <option value="">-- Pilih Program Studi --</option>
+			      <option value="Informatika">Informatika</option>
+			      <option value="Sistem Informasi">Sistem Informasi</option>
+			      <option value="Teknik Elektro">Teknik Elektro</option>
+			      <option value="Manajemen">Manajemen</option>
+			      <option value="Akuntansi">Akuntansi</option>
+			    </select>
+			  </div>
+			  <div class="mb-3">
+			    <label for="nohp" class="form-label">Nomor HP</label>
+			    <input type="tel" class="form-control" id="nohp" placeholder="08xxxxxxxxxx" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="email" class="form-label">Email Aktif</label>
+			    <input type="email" class="form-control" id="email" placeholder="contoh@email.com" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="password" class="form-label">Kata Sandi</label>
+			    <input type="password" class="form-control" id="password" placeholder="Buat kata sandi" required>
+			  </div>
+			  <div class="mb-3">
+			    <label for="konfirmasi" class="form-label">Konfirmasi Kata Sandi</label>
+			    <input type="password" class="form-control" id="konfirmasi" placeholder="Ulangi kata sandi" required>
+			  </div>
+			  <div class="d-grid">
+			    <button type="submit" class="btn btn-success">Daftar Sekarang</button>
+			  </div>
+			</form>
+
+          <p class="text-center mt-3">Sudah daftar sebelumnya? <a href="#">Masuk di sini</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const konfirmasi = document.getElementById("konfirmasi").value;
+
+  if (!nama || !email || !password || !konfirmasi) {
+    alert("Semua kolom wajib diisi!");
+    return false;
+  }
+
+  if (password !== konfirmasi) {
+    alert("Kata sandi tidak cocok!");
+    return false;
+  }
+
+  // Simpan data ke localStorage (opsional)
+  localStorage.setItem("namaPengguna", nama);
+
+  // Redirect ke halaman berhasil
+  window.location.href = "berhasil.html";
+  return false;
+}
+
+  </script>
+
+</body>
+</html>
